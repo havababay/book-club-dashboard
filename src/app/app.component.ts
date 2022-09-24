@@ -21,8 +21,6 @@ export class AppComponent {
     ['Value3', 3],
   ];
 
-  type1 = 'ColumnChart';
-
   // Bar chart
   bType = ChartType.ColumnChart;
   bData = [
@@ -57,4 +55,15 @@ export class AppComponent {
     fontSize: 9,
     legend: 'dsd',
   };
+
+  //Line Chart
+  lType = ChartType.LineChart;
+
+  lTitle="New members trend"
+
+  lData =[ ['April', 100],
+  ['May', 117],
+  ['June', 66],
+  ['July', 103]];
+
 }
