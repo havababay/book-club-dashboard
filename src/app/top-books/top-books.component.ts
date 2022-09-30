@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { topBooks} from '../../assets/data/top-books';
 
 @Component({
   selector: 'app-top-books',
@@ -12,4 +13,6 @@ export class TopBooksComponent implements OnInit {
   ngOnInit() {
   }
 
+  dataSource = topBooks;
+  displayedColumns: string[] = ['name', 'author', 'reads'];
 }
