@@ -13,6 +13,7 @@ import { GenresChartComponent } from './genres-chart/genres-chart.component';
 import { NewMembersOverTimeComponent } from './new-members-over-time/new-members-over-time.component';
 import { RetentionOverTimeComponent } from './retention-over-time/retention-over-time.component';
 import { TopBooksComponent } from './top-books/top-books.component';
+import { ReadsByAgeComponent } from './reads-by-age/reads-by-age.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { TopBooksComponent } from './top-books/top-books.component';
     NewMembersOverTimeComponent,
     RetentionOverTimeComponent,
     TopBooksComponent,
+    ReadsByAgeComponent
   ],
   bootstrap: [AppComponent],
 })
