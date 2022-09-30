@@ -4,11 +4,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
+import {MatNativeDateModule} from '@angular/material/core';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { AppComponent } from './app.component';
 import { FiltersPanelComponent } from './filters/filters-panel/filters-panel.component';
-import {MatNativeDateModule} from '@angular/material/core';
-import { GoogleChartsModule } from 'angular-google-charts';
+import { GenresChartComponent } from './genres-chart/genres-chart.component';
+import { NewMembersOverTimeComponent } from './new-members-over-time/new-members-over-time.component';
+import { RetentionOverTimeComponent } from './retention-over-time/retention-over-time.component';
 
 @NgModule({
   imports: [
@@ -20,7 +23,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
     MaterialModule,
     MatNativeDateModule,
   ],
-  declarations: [AppComponent, FiltersPanelComponent],
+  declarations: [AppComponent, FiltersPanelComponent, GenresChartComponent, NewMembersOverTimeComponent, RetentionOverTimeComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

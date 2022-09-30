@@ -9,18 +9,6 @@ import { ChartType, Row } from 'angular-google-charts';
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
 
-  // pie
-  pType = ChartType.PieChart;
-  pCols = ['Value', 'Count'];
-  pOpts = {
-    legend: 'none',
-  };
-  pData = [
-    ['Value1', 1],
-    ['Value2', 2],
-    ['Value3', 3],
-  ];
-
   // Bar chart
   bType = ChartType.ColumnChart;
   bData = [
@@ -55,15 +43,4 @@ export class AppComponent {
     fontSize: 9,
     legend: 'dsd',
   };
-
-  //Line Chart
-  lType = ChartType.LineChart;
-
-  lTitle="New members trend"
-
-  lData =[ ['April', 100],
-  ['May', 117],
-  ['June', 66],
-  ['July', 103]];
-
 }
