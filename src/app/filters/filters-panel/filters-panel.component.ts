@@ -16,4 +16,8 @@ export class FiltersPanelComponent implements OnInit {
   dateRangeMetadata() {
     return dateRangeMetadata;
   }
+
+  ageGroupMetadata() {
+    return ageGroupMetadata;
+  }
 }

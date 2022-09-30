@@ -2,7 +2,6 @@
   <mat-form-field appearance="fill">
     <mat-label>Date Range:</mat-label>
     <mat-select>
-      <mat-option>havawww</mat-option>
       <mat-option
         *ngFor="let dateRange of dateRangeMetadata()"
         [value]="dateRange.value">
@@ -10,6 +9,17 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+</div><div>
+  <mat-form-field appearance="fill">
+  <mat-label>Age Range:</mat-label>
+  <mat-select>
+    <mat-option
+      *ngFor="let ageRange of ageGroupMetadata()"
+      [value]="ageRange.value">
+      {{ ageRange.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 </div>
 
 

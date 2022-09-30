@@ -19,23 +19,25 @@ interface DateRangeOption {
   viewValue: string;
 }
 
+interface AgeRangeOption {
+  value: AgeRange;
+  viewValue: string;
+}
+
 export const dateRangeMetadata : DateRangeOption[] = [
   {value: DateRange.LAST_7_DAYS, viewValue: 'Last 7 Days'},
+  {value: DateRange.LAST_28_DAYS, viewValue: 'Last 28 Days'},
+  {value: DateRange.LAST_60_DAYS, viewValue: 'Last 60 Days'},
+  {value: DateRange.CUSTOM, viewValue: 'Custom'},
 ];
-/*new Map<DateRange, string>([
-  [DateRange.LAST_7_DAYS,'Last 7 Days'],
-  [DateRange.LAST_28_DAYS,'Last 28 Days'],
-  [DateRange.LAST_60_DAYS,'Last 60 Days'],
-  [DateRange.CUSTOM,'Custom']
-]);*/
 
-export const ageGroupMetadata = new Map<AgeRange, string>([
-  [AgeRange.AGE_RANGE_18_24,'18 - 24'],
-  [AgeRange.AGE_RANGE_25_34,'25 - 34'],
-  [AgeRange.AGE_RANGE_35_44,'35 - 44'],
-  [AgeRange.AGE_RANGE_45_54,'45 - 54'],
-  [AgeRange.AGE_RANGE_55_64,'55 - 64'],
-  [AgeRange.AGE_RANGE_65_PLUS,'65 +'],
-]);
+export const ageGroupMetadata : AgeRangeOption[] = [
+  {value: AgeRange.AGE_RANGE_18_24,viewValue:'18 - 24'},
+  {value: AgeRange.AGE_RANGE_25_34,viewValue:'25 - 34'},
+  {value: AgeRange.AGE_RANGE_35_44,viewValue:'35 - 44'},
+  {value: AgeRange.AGE_RANGE_45_54,viewValue:'45 - 54'},
+  {value: AgeRange.AGE_RANGE_55_64,viewValue:'55 - 64'},
+  {value: AgeRange.AGE_RANGE_65_PLUS,viewValue:'65 +'},
+];
 
 
