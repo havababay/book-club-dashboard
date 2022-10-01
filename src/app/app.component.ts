@@ -7,7 +7,5 @@ import { ChartType, Row } from 'angular-google-charts';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  name = 'Angular ' + VERSION.major;
-
 
 }
