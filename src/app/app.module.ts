@@ -14,6 +14,7 @@ import { NewMembersOverTimeComponent } from './new-members-over-time/new-members
 import { RetentionOverTimeComponent } from './retention-over-time/retention-over-time.component';
 import { TopBooksComponent } from './top-books/top-books.component';
 import { ReadsByAgeComponent } from './reads-by-age/reads-by-age.component';
+import { AgeRangeFilterComponent } from './filters/age-range-filter/age-range-filter.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { ReadsByAgeComponent } from './reads-by-age/reads-by-age.component';
     NewMembersOverTimeComponent,
     RetentionOverTimeComponent,
     TopBooksComponent,
-    ReadsByAgeComponent
+    ReadsByAgeComponent,
+    AgeRangeFilterComponent
   ],
   bootstrap: [AppComponent],
 })
