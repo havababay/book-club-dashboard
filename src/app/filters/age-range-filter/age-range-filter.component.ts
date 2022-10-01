@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ageGroupMetadata} from '../../../assets/data/report-metadata';
 
 @Component({
   selector: 'app-age-range-filter',
@@ -12,4 +13,7 @@ export class AgeRangeFilterComponent implements OnInit {
   ngOnInit() {
   }
 
+  ageGroupMetadata() {
+    return ageGroupMetadata;
+  }
 }

@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill">
+<mat-label>Age Range:</mat-label>
+<mat-select>
+  <mat-option
+    *ngFor="let ageRange of ageGroupMetadata()"
+    [value]="ageRange.value"
+  >
+    {{ ageRange.viewValue }}
+  </mat-option>
+</mat-select>
+</mat-form-field>

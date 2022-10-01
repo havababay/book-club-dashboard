@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { dateRangeMetadata, ageGroupMetadata} from '../../../assets/data/report-metadata';
+import { dateRangeMetadata} from '../../../assets/data/report-metadata';
 
 @Component({
   selector: 'app-filters-panel',
@@ -15,9 +15,5 @@ export class FiltersPanelComponent implements OnInit {
 
   dateRangeMetadata() {
     return dateRangeMetadata;
-  }
-
-  ageGroupMetadata() {
-    return ageGroupMetadata;
   }
 }
