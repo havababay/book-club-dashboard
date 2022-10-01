@@ -1,3 +1,11 @@
 p {
   font-family: Lato;
 }
+
+.charts {
+  display: flex;
+}
+
+.table {
+  width: 100%;
+}
