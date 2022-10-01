@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ageGroupMetadata} from '../../../assets/data/report-metadata';
+import { Component, Input, OnInit } from '@angular/core';
+import { ageGroupMetadata, AgeRange} from '../../../assets/data/report-metadata';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-age-range-filter',
@@ -15,5 +16,13 @@ export class AgeRangeFilterComponent implements OnInit {
 
   ageGroupMetadata() {
     return ageGroupMetadata;
+  }
+
+  @Input() ageRange?: AgeRange;
+
+  @Output() OnAgeChange = new EventEmitter<AgeRange>();
+
+  onAgeSelectionChange(event) {
+    this.OnAgeChange.emit(event.value);
   }
 }
