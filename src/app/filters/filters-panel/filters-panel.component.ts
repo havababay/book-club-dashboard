@@ -1,23 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { dateRangeMetadata, AgeRange, DateRange} from '../../../assets/data/report-metadata';
+import {
+  dateRangeMetadata,
+  AgeRange,
+  FilterOptions,
+} from '../../../assets/data/report-metadata';
 import { Output, Input, EventEmitter } from '@angular/core';
-
-interface FilterOptions {
-  date: DateRange;
-  age: AgeRange;
-}
 
 @Component({
   selector: 'app-filters-panel',
   templateUrl: './filters-panel.component.html',
-  styleUrls: ['./filters-panel.component.css']
+  styleUrls: ['./filters-panel.component.css'],
 })
 export class FiltersPanelComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   dateRangeMetadata() {
     return dateRangeMetadata;
@@ -25,7 +22,7 @@ export class FiltersPanelComponent implements OnInit {
 
   defaultAgeRange = AgeRange.AGE_RANGE_35_44;
 
-  @Input() filterOptions?: FilterOptions
-  
+  @Input() filterOptions?: FilterOptions;
+
   @Output() onFilterOptionsChange = new EventEmitter<FilterOptions>();
 }

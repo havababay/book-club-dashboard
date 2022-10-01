@@ -24,6 +24,11 @@ interface AgeRangeOption {
   viewValue: string;
 }
 
+export interface FilterOptions {
+  date: DateRange;
+  age: AgeRange;
+}
+
 export const dateRangeMetadata : DateRangeOption[] = [
   {value: DateRange.LAST_7_DAYS, viewValue: 'Last 7 Days'},
   {value: DateRange.LAST_28_DAYS, viewValue: 'Last 28 Days'},
