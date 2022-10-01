@@ -20,9 +20,9 @@ export class AgeRangeFilterComponent implements OnInit {
 
   @Input() ageRange?: AgeRange;
 
-  @Output() OnAgeChange = new EventEmitter<AgeRange>();
+  @Output() onAgeChange = new EventEmitter<AgeRange>();
 
   onAgeSelectionChange(event) {
-    this.OnAgeChange.emit(event.value);
+    this.onAgeChange.emit(event.value);
   }
 }
