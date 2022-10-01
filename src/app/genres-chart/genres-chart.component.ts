@@ -17,6 +17,8 @@ export class GenresChartComponent implements OnInit {
     pCols = ['Value', 'Count'];
     pOpts = {
       legend: 'dsd',
+      chartArea: { width: '100%' },
+      width: 800, height: 300,
     };
     pData = [
       ['Romance', 1],

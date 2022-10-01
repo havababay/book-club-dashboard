@@ -26,7 +26,7 @@ export class ReadsByAgeComponent implements OnInit {
     bColumnNames = ['Age', 'Books Read', { role: 'style' }, { role: 'annotation' }];
     bOptions = {
       title: '',
-      /*'width':400,*/ height: 200,
+      width: 800, height: 300,
       tooltip: {
         textStyle: { color: 'black', fontName: 'Tahoma', fontSize: '15' },
       },

@@ -25,5 +25,7 @@ export class RetentionOverTimeComponent implements OnInit {
 
   lOpts = {
     legend: 'dsd',
+    vAxis: { minValue: 0 },
+    width: 800, height: 300,
   };
 }
