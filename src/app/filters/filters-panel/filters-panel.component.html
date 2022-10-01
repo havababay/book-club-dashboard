@@ -1,26 +1,28 @@
-<div>
-  <mat-form-field appearance="fill">
-    <mat-label>Date Range:</mat-label>
-    <mat-select>
-      <mat-option
-        *ngFor="let dateRange of dateRangeMetadata()"
-        [value]="dateRange.value">
-        {{ dateRange.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<div class="filters-panel-container">
+  <div class="filter-field">
+    <mat-form-field appearance="fill">
+      <mat-label>Date Range:</mat-label>
+      <mat-select>
+        <mat-option
+          *ngFor="let dateRange of dateRangeMetadata()"
+          [value]="dateRange.value"
+        >
+          {{ dateRange.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="filter-field">
+    <mat-form-field appearance="fill">
+      <mat-label>Age Range:</mat-label>
+      <mat-select>
+        <mat-option
+          *ngFor="let ageRange of ageGroupMetadata()"
+          [value]="ageRange.value"
+        >
+          {{ ageRange.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
-<div>
-  <mat-form-field appearance="fill">
-  <mat-label>Age Range:</mat-label>
-  <mat-select>
-    <mat-option
-      *ngFor="let ageRange of ageGroupMetadata()"
-      [value]="ageRange.value">
-      {{ ageRange.viewValue }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-</div>
-
-

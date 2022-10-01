@@ -1,0 +1,7 @@
+.filters-panel-container {
+  display: flex;
+}
+
+.filter-field {
+  padding-right: 8px;
+}
