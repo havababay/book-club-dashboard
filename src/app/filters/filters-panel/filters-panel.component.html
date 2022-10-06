@@ -1,16 +1,6 @@
 <div class="filters-panel-container">
   <div class="filter-field">
-    <mat-form-field appearance="fill">
-      <mat-label>Date Range:</mat-label>
-      <mat-select>
-        <mat-option
-          *ngFor="let dateRange of dateRangeMetadata()"
-          [value]="dateRange.value"
-        >
-          {{ dateRange.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <app-date-range-filter></app-date-range-filter>
   </div>
   <div class="filter-field">
     <app-age-range-filter [ageRange]="defaultAgeRange"></app-age-range-filter>

@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill">
+<mat-label>Date Range:</mat-label>
+<mat-select>
+  <mat-option
+    *ngFor="let dateRange of dateRangeMetadata()"
+    [value]="dateRange.value"
+  >
+    {{ dateRange.viewValue }}
+  </mat-option>
+</mat-select>
+</mat-form-field>

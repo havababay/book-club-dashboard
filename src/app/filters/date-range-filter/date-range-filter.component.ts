@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { dateRangeMetadata} from '../../../assets/data/report-metadata';
 
 @Component({
   selector: 'app-date-range-filter',
@@ -12,4 +13,7 @@ export class DateRangeFilterComponent implements OnInit {
   ngOnInit() {
   }
 
+  dateRangeMetadata() {
+    return dateRangeMetadata;
+  }
 }
