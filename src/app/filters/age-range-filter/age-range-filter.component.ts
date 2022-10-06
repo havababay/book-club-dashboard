@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ageGroupMetadata, AgeRange} from '../../../assets/data/report-metadata';
-import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-age-range-filter',

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { dateRangeMetadata} from '../../../assets/data/report-metadata';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { dateRangeMetadata, DateRange} from '../../../assets/data/report-metadata';
 
 @Component({
   selector: 'app-date-range-filter',
@@ -15,5 +15,13 @@ export class DateRangeFilterComponent implements OnInit {
 
   dateRangeMetadata() {
     return dateRangeMetadata;
+  }
+
+  @Input() dateRange?: DateRange;
+
+  @Output() onDateChange = new EventEmitter<DateRange>();
+
+  onDateSelectionChange(event) {
+    this.onDateChange.emit(event.value);
   }
 }
