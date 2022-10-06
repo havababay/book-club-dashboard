@@ -15,6 +15,7 @@ import { RetentionOverTimeComponent } from './retention-over-time/retention-over
 import { TopBooksComponent } from './top-books/top-books.component';
 import { ReadsByAgeComponent } from './reads-by-age/reads-by-age.component';
 import { AgeRangeFilterComponent } from './filters/age-range-filter/age-range-filter.component';
+import { DateRangeFilterComponent } from './filters/date-range-filter/date-range-filter.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { AgeRangeFilterComponent } from './filters/age-range-filter/age-range-fi
     RetentionOverTimeComponent,
     TopBooksComponent,
     ReadsByAgeComponent,
-    AgeRangeFilterComponent
+    AgeRangeFilterComponent,
+    DateRangeFilterComponent
   ],
   bootstrap: [AppComponent],
 })
