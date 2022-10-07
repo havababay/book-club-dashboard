@@ -6,6 +6,7 @@ import {
 } from '../../../assets/data/report-metadata';
 import { Output, Input, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-filters-panel',
@@ -13,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./filters-panel.component.css'],
 })
 export class FiltersPanelComponent implements OnInit {
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private store: Store) {}
 
   ngOnInit() {}
 
