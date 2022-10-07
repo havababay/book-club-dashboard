@@ -25,11 +25,5 @@ export class DateRangeFilterComponent implements OnInit {
 
   onDateSelectionChange(event) {
     this.onDateChange.emit(event.value);
-
-    this.router.navigate([], {
-      relativeTo: this.activatedRoute,
-      queryParams: { dateRange: event.value },
-      queryParamsHandling: 'merge', // remove to replace all query params by provided
-    });
   }
 }

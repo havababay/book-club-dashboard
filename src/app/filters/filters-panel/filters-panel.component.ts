@@ -5,7 +5,7 @@ import {
   FilterOptions,
 } from '../../../assets/data/report-metadata';
 import { Output, Input, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-filters-panel',
@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./filters-panel.component.css'],
 })
 export class FiltersPanelComponent implements OnInit {
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -30,4 +30,12 @@ export class FiltersPanelComponent implements OnInit {
   @Input() filterOptions?: FilterOptions;
 
   @Output() onFilterOptionsChange = new EventEmitter<FilterOptions>();
+
+  onDateChange(dateRange) {
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: { dateRange: dateRange },
+      queryParamsHandling: 'merge', // remove to replace all query params by provided
+    });
+  }
 }
