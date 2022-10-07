@@ -15,11 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class FiltersPanelComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.defaultAgeRange = params['dateRange'];
-    });
-  }
+  ngOnInit() {}
 
   dateRangeMetadata() {
     return dateRangeMetadata;
