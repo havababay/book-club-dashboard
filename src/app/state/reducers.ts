@@ -5,13 +5,13 @@ import { FilterOptions } from '../../assets/data/report-metadata';
 
 export const updateFiltersReducer = createReducer(
   {} as FilterOptions,
-  on(updateFilters, cccc)
+  on(updateFilters, updateStoreWithNewFilters)
 );
 
 export const reducers: ActionReducerMap<FiltersState> = {
   filters: updateFiltersReducer,
 };
 
-function cccc(lastState, _action) {
+function updateStoreWithNewFilters(lastState, _action) {
   return { ...lastState, filters: _action.filters };
 }
