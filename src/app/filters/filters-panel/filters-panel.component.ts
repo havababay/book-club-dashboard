@@ -16,9 +16,8 @@ export class FiltersPanelComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    console.log('on init');
     this.activatedRoute.queryParams.subscribe((params) => {
-      console.log('routing parammmeters' + params['a']);
+      this.defaultAgeRange = params['dateRange'];
     });
   }
 

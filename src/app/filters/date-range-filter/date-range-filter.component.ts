@@ -28,7 +28,7 @@ export class DateRangeFilterComponent implements OnInit {
 
     this.router.navigate([], {
       relativeTo: this.activatedRoute,
-      queryParams: { a: event.value },
+      queryParams: { dateRange: event.value },
       queryParamsHandling: 'merge', // remove to replace all query params by provided
     });
   }
