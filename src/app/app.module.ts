@@ -30,9 +30,7 @@ import { AppState, INITIAL_STATE } from './state/store';
     MaterialModule,
     MatNativeDateModule,
     RouterModule.forRoot([]),
-    StoreModule.forRoot({
-      tableState: TableReducers
-    })
+    StoreModule.forRoot({ })
 ],
   declarations: [
     AppComponent,
