@@ -19,6 +19,7 @@ import { DateRangeFilterComponent } from './filters/date-range-filter/date-range
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { AppState, INITIAL_STATE } from './state/store';
+import { reducers } from './state/reducers';
 
 @NgModule({
   imports: [
@@ -30,8 +31,8 @@ import { AppState, INITIAL_STATE } from './state/store';
     MaterialModule,
     MatNativeDateModule,
     RouterModule.forRoot([]),
-    StoreModule.forRoot({ })
-],
+    StoreModule.forFeature('filtersState', reducers),
+  ],
   declarations: [
     AppComponent,
     FiltersPanelComponent,
@@ -41,9 +42,8 @@ import { AppState, INITIAL_STATE } from './state/store';
     TopBooksComponent,
     ReadsByAgeComponent,
     AgeRangeFilterComponent,
-    DateRangeFilterComponent
+    DateRangeFilterComponent,
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
