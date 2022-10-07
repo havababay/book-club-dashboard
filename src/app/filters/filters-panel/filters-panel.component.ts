@@ -19,21 +19,21 @@ export class FiltersPanelComponent implements OnInit {
       console.log(val instanceof NavigationEnd) 
   });
   }*/
-/*
+
   constructor(private route: ActivatedRoute) {
     console.log("constructor");
-  }*/
-/*
+  }
+
   ngOnInit() {
     console.log("on init");
     this.route.queryParams
       .subscribe(params => {
-        console.log(params); // { order: "popular" }
+        console.log("routing parammmeters" + params['a']); // { order: "popular" }
       }
     );
   }
-*/
-ngOnInit() {}
+
+//ngOnInit() {}
   dateRangeMetadata() {
     return dateRangeMetadata;
   }
