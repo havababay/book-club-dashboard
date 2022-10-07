@@ -7,6 +7,7 @@ import {
 import { Output, Input, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { updateFilters } from '../../state/actions';
 
 @Component({
   selector: 'app-filters-panel',
@@ -14,7 +15,11 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./filters-panel.component.css'],
 })
 export class FiltersPanelComponent implements OnInit {
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private store: Store) {}
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private store: Store
+  ) {}
 
   ngOnInit() {}
 
@@ -22,7 +27,7 @@ export class FiltersPanelComponent implements OnInit {
     return dateRangeMetadata;
   }
 
-  defaultAgeRange = AgeRange.AGE_RANGE_35_44;
+  currentAgeRange: AgeRange = AgeRange.AGE_RANGE_35_44;
 
   @Input() filterOptions?: FilterOptions;
 
@@ -34,5 +39,11 @@ export class FiltersPanelComponent implements OnInit {
       queryParams: { dateRange: dateRange },
       queryParamsHandling: 'merge', // remove to replace all query params by provided
     });
+
+    var currentFilters: FilterOptions = {
+      date: dateRange,
+      age: this.currentAgeRange,
+    };
+    this.store.dispatch(updateFilters({ filters: currentFilters }));
   }
 }
