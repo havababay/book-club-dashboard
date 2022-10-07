@@ -16,6 +16,7 @@ import { TopBooksComponent } from './top-books/top-books.component';
 import { ReadsByAgeComponent } from './reads-by-age/reads-by-age.component';
 import { AgeRangeFilterComponent } from './filters/age-range-filter/age-range-filter.component';
 import { DateRangeFilterComponent } from './filters/date-range-filter/date-range-filter.component';
+//import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -26,7 +27,9 @@ import { DateRangeFilterComponent } from './filters/date-range-filter/date-range
     GoogleChartsModule,
     MaterialModule,
     MatNativeDateModule,
-  ],
+    /*RouterModule.forRoot([
+      { path: '', component: AppComponent }, 
+  ])*/],
   declarations: [
     AppComponent,
     FiltersPanelComponent,

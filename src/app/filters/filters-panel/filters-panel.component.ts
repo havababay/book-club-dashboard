@@ -5,6 +5,7 @@ import {
   FilterOptions,
 } from '../../../assets/data/report-metadata';
 import { Output, Input, EventEmitter } from '@angular/core';
+import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-filters-panel',
@@ -12,10 +13,27 @@ import { Output, Input, EventEmitter } from '@angular/core';
   styleUrls: ['./filters-panel.component.css'],
 })
 export class FiltersPanelComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
-
+ /* constructor(private router: Router) {
+    router.events.subscribe((val) => {
+      // see also 
+      console.log(val instanceof NavigationEnd) 
+  });
+  }*/
+/*
+  constructor(private route: ActivatedRoute) {
+    console.log("constructor");
+  }*/
+/*
+  ngOnInit() {
+    console.log("on init");
+    this.route.queryParams
+      .subscribe(params => {
+        console.log(params); // { order: "popular" }
+      }
+    );
+  }
+*/
+ngOnInit() {}
   dateRangeMetadata() {
     return dateRangeMetadata;
   }
