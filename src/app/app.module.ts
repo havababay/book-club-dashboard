@@ -17,6 +17,8 @@ import { ReadsByAgeComponent } from './reads-by-age/reads-by-age.component';
 import { AgeRangeFilterComponent } from './filters/age-range-filter/age-range-filter.component';
 import { DateRangeFilterComponent } from './filters/date-range-filter/date-range-filter.component';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { AppState, INITIAL_STATE } from './state/store';
 
 @NgModule({
   imports: [
@@ -27,7 +29,11 @@ import { RouterModule } from '@angular/router';
     GoogleChartsModule,
     MaterialModule,
     MatNativeDateModule,
-    RouterModule.forRoot([])],
+    RouterModule.forRoot([]),
+    StoreModule.forRoot({
+      tableState: TableReducers
+    })
+],
   declarations: [
     AppComponent,
     FiltersPanelComponent,
@@ -41,4 +47,5 @@ import { RouterModule } from '@angular/router';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
