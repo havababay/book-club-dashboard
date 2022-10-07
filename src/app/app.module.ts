@@ -31,6 +31,7 @@ import { reducers } from './state/reducers';
     MaterialModule,
     MatNativeDateModule,
     RouterModule.forRoot([]),
+    StoreModule.forRoot({}), 
     StoreModule.forFeature('filtersState', reducers),
   ],
   declarations: [
