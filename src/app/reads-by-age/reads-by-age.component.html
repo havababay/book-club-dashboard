@@ -1,2 +1,16 @@
-<h4>Books Read By Age Range</h4>
-<google-chart [type]="bType" [data]="bData" [columns]="bColumnNames" [options]="bOptions"></google-chart>
+<div class="container">
+  <h4>Books Read By Age Range</h4>
+  <div *ngIf="isLoading; else showProgressBar">
+    <google-chart
+      [type]="bType"
+      [data]="bData"
+      [columns]="bColumnNames"
+      [options]="bOptions"
+    ></google-chart>
+  </div>
+  <ng-template #showProgressBar>
+    <div class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</div>
