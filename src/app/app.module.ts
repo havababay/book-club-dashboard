@@ -18,8 +18,7 @@ import { AgeRangeFilterComponent } from './filters/age-range-filter/age-range-fi
 import { DateRangeFilterComponent } from './filters/date-range-filter/date-range-filter.component';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
-import { AppState, INITIAL_STATE } from './state/store';
-import { reducers } from './state/reducers';
+import { reducers, fetchReadsByAgeReducer } from './state/reducers';
 
 @NgModule({
   imports: [
@@ -33,6 +32,7 @@ import { reducers } from './state/reducers';
     RouterModule.forRoot([]),
     StoreModule.forRoot({}), 
     StoreModule.forFeature('filtersState', reducers),
+    StoreModule.forFeature('readsByAgeState', fetchReadsByAgeReducer),
   ],
   declarations: [
     AppComponent,

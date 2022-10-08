@@ -1,4 +1,4 @@
-import { AppState, FeatureReadsByAge, FiltersState, INITIAL_STATE, ReadsByAgeState } from './store';
+import { FeatureReadsByAge, FiltersState, ReadsByAgeState } from './store';
 import {
   updateFilters,
   fetchReadsByAgPending,
@@ -10,12 +10,10 @@ import { FilterOptions } from '../../assets/data/report-metadata';
 
 export const updateFiltersReducer = createReducer(
   {} as FilterOptions,
-  on(updateFilters, updateStoreWithNewFilters)
+  on(updateFilters, (lastState, _action) => {
+    return { ...lastState, filters: _action.filters };
+  })
 );
-
-function updateStoreWithNewFilters(lastState, _action) {
-  return { ...lastState, filters: _action.filters };
-}
 
 export const fetchReadsByAgeReducer = createReducer(
   {} as FeatureReadsByAge,
@@ -35,7 +33,5 @@ export const reducers: ActionReducerMap<FiltersState> = {
 };
 
 export const readsByAgeReducers: ActionReducerMap<ReadsByAgeState> = {
-  reads: fetchReadsByAgeReducer
+  reads: fetchReadsByAgeReducer,
 };
-
-
