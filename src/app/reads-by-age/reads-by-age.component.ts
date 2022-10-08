@@ -17,35 +17,27 @@ export class ReadsByAgeComponent implements OnInit {
     this.store
       .pipe(select(getReadsByAgeState))
       .subscribe((state: ReadsByAgeState) => {
-        console.log('selector: starting');
-
         if (state === undefined) {
           return;
         }
         if (state.loading == true) {
-          console.log('selector: loading');
           this.isLoading = true;
         } else {
           if (state.data != null) {
             this.isLoading = false;
-            //this.bData = reads.data;
-            console.log('selector: loading done');
           }
         }
       });
 
-    this.store.pipe(select(getFiltersState)).subscribe((state: FiltersState) => {
-      if (state.filters === undefined) {
-        return;
-      }
+    this.store
+      .pipe(select(getFiltersState))
+      .subscribe((state: FiltersState) => {
+        if (state.filters === undefined) {
+          return;
+        }
 
-      console.log(
-        'ReadsByAgeComponent new filters - age ' + state.filters.age + ' - date ' + state.filters.date
-      );
-      //this.currentFilters = filters;
-
-      this.store.dispatch(fetchReadsByAgPending({ filters: state.filters }));
-    });
+        this.store.dispatch(fetchReadsByAgPending({ filters: state.filters }));
+      });
   }
 
   isLoading = true;
