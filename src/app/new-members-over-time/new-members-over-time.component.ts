@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { ChartType } from 'angular-google-charts';
-import { getFiltersState } from '../state/selectors';
+import { FilterOptions } from '../../assets/data/report-metadata';
+import { getFilters } from '../state/selectors';
 import { FiltersState } from '../state/store';
 
 @Component({
@@ -13,11 +14,13 @@ export class NewMembersOverTimeComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit() {
-    this.store.select(getFiltersState).subscribe((state: FiltersState) => {
-      console.log('hava');
+    this.store.pipe(select(getFilters)).subscribe((filters: FilterOptions) => {
+      console.log('new filters ' + filters);
+      this.currentFilters = filters;
     });
   }
 
+  currentFilters : FilterOptions;
   lType = ChartType.LineChart;
   lCols = ['Date', 'New Members Count'];
   lTitle = 'New members trend';
