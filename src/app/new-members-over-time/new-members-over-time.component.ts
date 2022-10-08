@@ -3,7 +3,6 @@ import { select, Store } from '@ngrx/store';
 import { ChartType } from 'angular-google-charts';
 import { FilterOptions } from '../../assets/data/report-metadata';
 import { getFilters } from '../state/selectors';
-import { FiltersState } from '../state/store';
 
 @Component({
   selector: 'app-new-members-over-time',
