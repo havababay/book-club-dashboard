@@ -21,7 +21,7 @@ export const fetchReadsByAgeReducer = createReducer(
     return { ...lastState, loading: true };
   }),
   on(fetchReadsByAgeSuccess, (lastState, _action) => {
-    return { ...lastState, data: _action.readsByAge, loading: false };
+    return { ...lastState, data: _action.data, loading: false };
   }),
   on(fetchReadsByAgeError, (lastState, _action) => {
     return { ...lastState, error: _action.error, loading: false };

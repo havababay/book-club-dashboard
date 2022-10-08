@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { mergeMap, map, catchError, tap } from 'rxjs/operators';
+import { mergeMap, map, catchError, tap, } from 'rxjs/operators';
 import { DashboardMetricsService } from '../services/dashboard_metrics.service';
 import {
   fetchReadsByAgPending,
@@ -55,7 +55,7 @@ export class ReadsByAgeEffect {
       console.log('new fetchReadsByAge running')
       return this.service.fetchReadsByAge(filters : action.filters).pipe(
         map(res => fetchReadsByAgeSuccess({ data: res })),
-        catchError(error => of(fetchReadsByAgeError({ error }))),
+        catchError(error => of(fetchReadsByAgeError({ error : error }))),
         tap(() => { console.log('fetchReadsByAge Finished') })
       )
     }

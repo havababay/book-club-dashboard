@@ -13,7 +13,7 @@ export const fetchReadsByAgPending = createAction(
 
 export const fetchReadsByAgeSuccess = createAction(
   'Fetch Reads By Age - Success',
-  props<{ readsByAge }>()
+  props<{ data }>()
 );
 
 
