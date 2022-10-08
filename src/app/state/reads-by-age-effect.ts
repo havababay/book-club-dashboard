@@ -19,87 +19,26 @@ import { of } from 'rxjs';
 
 @Injectable()
 export class ReadsByAgeEffect {
-  /*    readsByAgeEffect$: createEffect(
-      () => this.actions$.pipe(
-        ofType(fetchReadsByAgPending),
-        switchMap(action =>
-          this.service.fetchReadsByAge(action.filters)
-              .pipe(
-                  delay(3000),
-                  map(fetchReadsByAgeSuccess),
-                  catchError(err => of(fetchReadsByAgeError(err)))
-              )
-       )
-      ),
-    );*/
-  /*
-    effectName$ = createEffect(
-      () => this.actions$.pipe(
-        ofType(fetchReadsByAgPending),
-        map(() => fetchReadsByAgeSuccess())
-      )
-    );*/
-  /*
-    getMockDataEffect$ = createEffect(
-      () => this.actions$.pipe(
-        ofType(fetchReadsByAgPending),
-        tap(() => { console.log('new fetchReadsByAge occurred in queue') }),
-        mergeMap((action) => {
-          console.log('new fetchReadsByAge running')
-          return this.service.fetchReadsByAge(filters : action.filters).pipe(
-            map(res => fetchReadsByAgeSuccess({ data: res })),
-            catchError(error => of(fetchReadsByAgeError({ error }))),
-            tap(() => { console.log('fetchReadsByAge Finished') })
-          )
-        }
-        )
-      )
-    );
-*/
-
-  getMockDataEffect11$ = createEffect(
-    () => this.actions$.pipe(ofType(fetchReadsByAgPending)),
-    tap(() => {
-      console.log('new fetchReadsByAge occurred in queue');
-    }),
-    /*switchMap((action) => 
-      this.service.fetchReadsByAge(action.filters)/*.pipe(
-        delay(3000),
-        map((res) => fetchReadsByAgeSuccess({ data: res })),
-        catchError((error) => of(fetchReadsByAgeError({ error: error })))
-      )
-    )*/
+ 
+  getMockDataEffect11$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fetchReadsByAgPending),
+      tap(() => {
+        console.log('new fetchReadsByAge occurred in queue');
+      }),
+      switchMap((action) => {
+        console.log('new fetchReadsByAge running');
+        return this.service.fetchReadsByAge(action.filters).pipe(
+          delay(3000),
+          map((res) => fetchReadsByAgeSuccess({ data: res })),
+          catchError((error) => of(fetchReadsByAgeError({ error: error }))),
+          tap(() => {
+            console.log('fetchReadsByAge Finished');
+          })
+        );
+      })
+    )
   );
-
-  getMockDataEffect12$ = createEffect(
-    () => this.actions$.pipe(ofType(fetchReadsByAgPending)),
-    tap(() => {
-      console.log('new fetchReadsByAge occurred in queue');
-    }),
-    mergeMap((action) => {
-      console.log('new fetchReadsByAge running');
-      return this.service.fetchReadsByAge(action.filters).pipe(
-        map((res) => fetchReadsByAgeSuccess({ data: res })),
-        catchError((error) => of(fetchReadsByAgeError({ error: error }))),
-        tap(() => {
-          console.log('fetchReadsByAge Finished');
-        })
-      );
-    })
-  );
-
-  /*Observable<Action> = this.actions$.pipe(
-        ofType(FETCHING_USERS),
-        switchMap(action =>
-            this.http
-                .get("https://jsonplaceholder.typicode.com/users")
-                .pipe(
-                    delay(3000),
-                    map(usersFetchSuccessful),
-                    catchError(err => of(fetchError(err)))
-                )
-         )
-    );*/
 
   constructor(
     private actions$: Actions<Action>,
