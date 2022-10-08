@@ -1,7 +1,7 @@
 .spinner {
-  align-self: left;
+  float:left;
 }
 
 .container {
-  text-align: left;
+  float:left;
 }
