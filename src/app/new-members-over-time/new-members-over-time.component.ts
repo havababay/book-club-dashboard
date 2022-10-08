@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { ChartType } from 'angular-google-charts';
 import { FilterOptions } from '../../assets/data/report-metadata';
-import { getFilters } from '../state/selectors';
+import { getFiltersState } from '../state/selectors';
+import { FiltersState } from '../state/store';
 
 @Component({
   selector: 'app-new-members-over-time',
@@ -13,9 +14,9 @@ export class NewMembersOverTimeComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit() {
-    this.store.pipe(select(getFilters)).subscribe((filters: FilterOptions) => {
-      console.log('NewMembersOverTimeComponent new filters - age ' + filters.age + ' - date ' + filters.date);
-      this.currentFilters = filters;
+    this.store.pipe(select(getFiltersState)).subscribe((state: FiltersState) => {
+      console.log('NewMembersOverTimeComponent new filters - age ' + state.filters.age + ' - date ' + state.filters.date);
+      this.currentFilters = state.filters;
     });
   }
 

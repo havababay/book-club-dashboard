@@ -18,7 +18,7 @@ import { AgeRangeFilterComponent } from './filters/age-range-filter/age-range-fi
 import { DateRangeFilterComponent } from './filters/date-range-filter/date-range-filter.component';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
-import { reducers, fetchReadsByAgeReducer } from './state/reducers';
+import { updateFiltersReducer, fetchReadsByAgeReducer } from './state/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { ReadsByAgeEffect } from './state/reads-by-age-effect';
 import { DashboardMetricsService } from './services/dashboard_metrics.service';
@@ -35,7 +35,7 @@ import { DashboardMetricsService } from './services/dashboard_metrics.service';
     RouterModule.forRoot([]),
     StoreModule.forRoot({}), 
     EffectsModule.forRoot([]),
-    StoreModule.forFeature('filtersState', reducers),
+    StoreModule.forFeature('filtersState', updateFiltersReducer),
     StoreModule.forFeature('readsByAgeState', fetchReadsByAgeReducer),
     EffectsModule.forFeature([ReadsByAgeEffect]),
   ],

@@ -13,15 +13,11 @@ const initialStateFilters : FilterOptions = {
   date : DateRange.LAST_7_DAYS
 };
 export const updateFiltersReducer = createReducer(
-  {} as FilterOptions,
-  on(updateFilters, (lastState = initialStateFilters, _action) => {
+  {} as FiltersState,
+  on(updateFilters, (lastState, _action) => {
     return { ...lastState, filters: _action.filters };
   })
 );
-
-export const reducers: ActionReducerMap<FiltersState> = {
-  filters: updateFiltersReducer,
-};
 
 const initialStateReads : ReadsByAgeState = {
   loading: true,

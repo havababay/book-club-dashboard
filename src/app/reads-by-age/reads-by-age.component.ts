@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { ChartType } from 'angular-google-charts';
-import { FilterOptions } from '../../assets/data/report-metadata';
 import { fetchReadsByAgPending } from '../state/actions';
-import { getReadsByAgeState, getFilters } from '../state/selectors';
-import { ReadsByAgeState } from '../state/store';
+import { getReadsByAgeState, getFiltersState } from '../state/selectors';
+import { FiltersState, ReadsByAgeState } from '../state/store';
 
 @Component({
   selector: 'app-reads-by-age',
@@ -35,13 +34,13 @@ export class ReadsByAgeComponent implements OnInit {
         }
       });
 
-    this.store.pipe(select(getFilters)).subscribe((filters: FilterOptions) => {
+    this.store.pipe(select(getFiltersState)).subscribe((state: FiltersState) => {
       console.log(
-        'ReadsByAgeComponent new filters - age ' + filters.age + ' - date ' + filters.date
+        'ReadsByAgeComponent new filters - age ' + state.filters.age + ' - date ' + state.filters.date
       );
       //this.currentFilters = filters;
 
-      this.store.dispatch(fetchReadsByAgPending({ filters: filters }));
+      this.store.dispatch(fetchReadsByAgPending({ filters: state.filters }));
     });
   }
 
