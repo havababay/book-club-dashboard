@@ -21,6 +21,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, fetchReadsByAgeReducer } from './state/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { ReadsByAgeEffect } from './state/reads-by-age-effect';
+import { DashboardMetricsService } from './services/dashboard_metrics.service';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { ReadsByAgeEffect } from './state/reads-by-age-effect';
     MatNativeDateModule,
     RouterModule.forRoot([]),
     StoreModule.forRoot({}), 
+    EffectsModule.forRoot([]),
     StoreModule.forFeature('filtersState', reducers),
     StoreModule.forFeature('readsByAgeState', fetchReadsByAgeReducer),
     EffectsModule.forFeature([ReadsByAgeEffect]),
@@ -49,5 +51,6 @@ import { ReadsByAgeEffect } from './state/reads-by-age-effect';
     DateRangeFilterComponent,
   ],
   bootstrap: [AppComponent],
+  providers: [DashboardMetricsService]
 })
 export class AppModule {}
