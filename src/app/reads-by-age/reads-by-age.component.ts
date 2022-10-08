@@ -18,6 +18,7 @@ export class ReadsByAgeComponent implements OnInit {
     this.store
       .pipe(select(getReadsByAge))
       .subscribe((reads: FeatureReadsByAge) => {
+        console.log('selector: starting');
         if (reads.loading == true) {
           console.log('selector: loading');
           this.isLoading = true;
@@ -32,7 +33,7 @@ export class ReadsByAgeComponent implements OnInit {
 
     this.store.pipe(select(getFilters)).subscribe((filters: FilterOptions) => {
       console.log(
-        'ReadsByAgeComponent new filters - age ' + filters.age + ' - date' + filters.date
+        'ReadsByAgeComponent new filters - age ' + filters.age + ' - date ' + filters.date
       );
       //this.currentFilters = filters;
 
