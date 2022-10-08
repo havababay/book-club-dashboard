@@ -1,7 +1,8 @@
-import { FilterOptions } from "../../assets/data/report-metadata";
+import { AgeRange, FilterOptions } from "../../assets/data/report-metadata";
 
 export interface AppState{
   filtersState : FiltersState;
+  readsByAgeState : ReadsByAgeState;
 }
 
 export interface FiltersState{
@@ -9,5 +10,12 @@ export interface FiltersState{
 }
 
 export const INITIAL_STATE: AppState = {
-  filtersState : null
+  filtersState : null,
+  readsByAgeState : null
 };
+
+export interface ReadsByAgeState {
+  loading: boolean;
+  data : Map<AgeRange, number>;
+  error: string;
+}
