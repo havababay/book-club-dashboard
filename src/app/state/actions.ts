@@ -6,7 +6,18 @@ export const updateFilters = createAction(
   props<{ filters: FilterOptions }>()
 );
 
-export const fetchReadsByAge = createAction(
-  'Fetch Reads By Age',
+export const fetchReadsByAgPending = createAction(
+  'Fetch Reads By Age - Pending',
   props<{ filters: FilterOptions }>()
+);
+
+export const fetchReadsByAgeSuccess = createAction(
+  'Fetch Reads By Age - Success',
+  props<{ readsByAge }>()
+);
+
+
+export const fetchReadsByAgeError = createAction(
+  'Fetch Reads By Age - Error',
+  props<{ error: string }>()
 );
