@@ -10,15 +10,7 @@ export const getFilters = createSelector(
 
 export const getReadsByAgeState =
   createFeatureSelector<ReadsByAgeState>('readsByAgeState');
-export const getReadsByAgeData = createSelector(
+export const getReadsByAge = createSelector(
   getReadsByAgeState,
-  (state) => state.reads.data
-);
-export const getReadsByAgeError = createSelector(
-  getReadsByAgeState,
-  (state) => state.reads.error
-);
-export const isReadsByAgeLoading = createSelector(
-  getReadsByAgeState,
-  (state) => state.reads.loading
+  (state) => state.reads
 );
