@@ -32,7 +32,7 @@ export class ReadsByAgeComponent implements OnInit {
 
     this.store.pipe(select(getFilters)).subscribe((filters: FilterOptions) => {
       console.log(
-        'new filters - age ' + filters.age + ' - date' + filters.date
+        'ReadsByAgeComponent new filters - age ' + filters.age + ' - date' + filters.date
       );
       //this.currentFilters = filters;
 
