@@ -15,6 +15,10 @@ export class NewMembersOverTimeComponent implements OnInit {
 
   ngOnInit() {
     this.store.pipe(select(getFiltersState)).subscribe((state: FiltersState) => {
+      if (state.filters === undefined) {
+        return;
+      }
+      
       console.log('NewMembersOverTimeComponent new filters - age ' + state.filters.age + ' - date ' + state.filters.date);
       this.currentFilters = state.filters;
     });

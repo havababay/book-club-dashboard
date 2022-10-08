@@ -6,23 +6,29 @@ import {
   fetchReadsByAgeError,
 } from './actions';
 import { ActionReducerMap, createReducer, on } from '@ngrx/store';
-import { AgeRange, DateRange, FilterOptions } from '../../assets/data/report-metadata';
+import {
+  AgeRange,
+  DateRange,
+  FilterOptions,
+} from '../../assets/data/report-metadata';
 
-const initialStateFilters : FilterOptions = {
-  age : AgeRange.AGE_RANGE_18_24,
-  date : DateRange.LAST_7_DAYS
+const initialStateFilters: FiltersState = {
+  filters: {
+    age: AgeRange.AGE_RANGE_18_24,
+    date: DateRange.LAST_7_DAYS,
+  },
 };
 export const updateFiltersReducer = createReducer(
   {} as FiltersState,
-  on(updateFilters, (lastState, _action) => {
+  on(updateFilters, (lastState = initialStateFilters, _action) => {
     return { ...lastState, filters: _action.filters };
   })
 );
 
-const initialStateReads : ReadsByAgeState = {
+const initialStateReads: ReadsByAgeState = {
   loading: true,
   data: new Map<AgeRange, number>(),
-  error: null
+  error: null,
 };
 export const fetchReadsByAgeReducer = createReducer(
   {} as ReadsByAgeState,

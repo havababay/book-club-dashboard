@@ -35,6 +35,10 @@ export class ReadsByAgeComponent implements OnInit {
       });
 
     this.store.pipe(select(getFiltersState)).subscribe((state: FiltersState) => {
+      if (state.filters === undefined) {
+        return;
+      }
+
       console.log(
         'ReadsByAgeComponent new filters - age ' + state.filters.age + ' - date ' + state.filters.date
       );
