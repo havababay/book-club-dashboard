@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { ChartType } from 'angular-google-charts';
+import { FilterOptions } from '../../assets/data/report-metadata';
+import { fetchReadsByAgPending } from '../state/actions';
+import { getReadsByAge, getFilters } from '../state/selectors';
+import { FeatureReadsByAge } from '../state/store';
 
 @Component({
   selector: 'app-reads-by-age',
@@ -7,11 +12,35 @@ import { ChartType } from 'angular-google-charts';
   styleUrls: ['./reads-by-age.component.css'],
 })
 export class ReadsByAgeComponent implements OnInit {
-  constructor() {}
+  constructor(private store: Store) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.store
+      .pipe(select(getReadsByAge))
+      .subscribe((reads: FeatureReadsByAge) => {
+        if (reads.loading == true) {
+          console.log('selector: loading');
+          this.isLoading = true;
+        } else {
+          if (reads.data != null) {
+            this.isLoading = false;
+            //this.bData = reads.data;
+            console.log('selector: loading done');
+          }
+        }
+      });
 
-  isLoading = false;
+    this.store.pipe(select(getFilters)).subscribe((filters: FilterOptions) => {
+      console.log(
+        'new filters - age ' + filters.age + ' - date' + filters.date
+      );
+      //this.currentFilters = filters;
+
+      this.store.dispatch(fetchReadsByAgPending({ filters: filters }));
+    });
+  }
+
+  isLoading = true;
 
   // Bar chart
   bType = ChartType.ColumnChart;

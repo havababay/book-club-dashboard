@@ -14,7 +14,7 @@ export class NewMembersOverTimeComponent implements OnInit {
 
   ngOnInit() {
     this.store.pipe(select(getFilters)).subscribe((filters: FilterOptions) => {
-      console.log('new filters ' + filters);
+      console.log('new filters - age ' + filters.age + ' - date' + filters.date);
       this.currentFilters = filters;
     });
   }
