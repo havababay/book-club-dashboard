@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AgeRange } from '../../assets/data/report-metadata';
+import { AgeRange, FilterOptions } from '../../assets/data/report-metadata';
 
 @Injectable()
 export class DashboardMetricsService {
@@ -14,7 +14,7 @@ export class DashboardMetricsService {
     [AgeRange.AGE_RANGE_65_PLUS, 90],
   ];
 
-  fetchReadsByAge() {
+  fetchReadsByAge(filters: FilterOptions) {
     return this.readsByAgeStaticData;
   }
 }

@@ -5,3 +5,8 @@ export const updateFilters = createAction(
   'Update Filters',
   props<{ filters: FilterOptions }>()
 );
+
+export const fetchReadsByAge = createAction(
+  'Fetch Reads By Age',
+  props<{ filters: FilterOptions }>()
+);
