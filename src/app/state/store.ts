@@ -14,12 +14,8 @@ export const INITIAL_STATE: AppState = {
   readsByAgeState : null
 };
 
-export interface FeatureReadsByAge {
+export interface ReadsByAgeState {
   loading: boolean;
   data : Map<AgeRange, number>;
   error: string;
-}
-
-export interface ReadsByAgeState {
-  reads: FeatureReadsByAge;
 }

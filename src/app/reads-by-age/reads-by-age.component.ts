@@ -3,8 +3,8 @@ import { select, Store } from '@ngrx/store';
 import { ChartType } from 'angular-google-charts';
 import { FilterOptions } from '../../assets/data/report-metadata';
 import { fetchReadsByAgPending } from '../state/actions';
-import { getReadsByAge, getFilters } from '../state/selectors';
-import { FeatureReadsByAge } from '../state/store';
+import { getReadsByAgeState, getFilters } from '../state/selectors';
+import { ReadsByAgeState } from '../state/store';
 
 @Component({
   selector: 'app-reads-by-age',
@@ -16,14 +16,18 @@ export class ReadsByAgeComponent implements OnInit {
 
   ngOnInit() {
     this.store
-      .pipe(select(getReadsByAge))
-      .subscribe((reads: FeatureReadsByAge) => {
+      .pipe(select(getReadsByAgeState))
+      .subscribe((state: ReadsByAgeState) => {
         console.log('selector: starting');
-        if (reads.loading == true) {
+
+        if (state === undefined) {
+          return;
+        }
+        if (state.loading == true) {
           console.log('selector: loading');
           this.isLoading = true;
         } else {
-          if (reads.data != null) {
+          if (state.data != null) {
             this.isLoading = false;
             //this.bData = reads.data;
             console.log('selector: loading done');

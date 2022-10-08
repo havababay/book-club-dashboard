@@ -1,4 +1,4 @@
-import { FeatureReadsByAge, FiltersState, ReadsByAgeState } from './store';
+import { FiltersState, ReadsByAgeState } from './store';
 import {
   updateFilters,
   fetchReadsByAgPending,
@@ -23,13 +23,13 @@ export const reducers: ActionReducerMap<FiltersState> = {
   filters: updateFiltersReducer,
 };
 
-const initialStateReads : FeatureReadsByAge = {
+const initialStateReads : ReadsByAgeState = {
   loading: true,
   data: new Map<AgeRange, number>(),
   error: null
 };
 export const fetchReadsByAgeReducer = createReducer(
-  {} as FeatureReadsByAge,
+  {} as ReadsByAgeState,
   on(fetchReadsByAgPending, (lastState = initialStateReads, _action) => {
     return { ...lastState, loading: true };
   }),
@@ -40,6 +40,3 @@ export const fetchReadsByAgeReducer = createReducer(
     return { ...lastState, error: _action.error, loading: false };
   })
 );
-export const readsByAgeReducers: ActionReducerMap<ReadsByAgeState> = {
-  reads: fetchReadsByAgeReducer,
-};

@@ -10,7 +10,3 @@ export const getFilters = createSelector(
 
 export const getReadsByAgeState =
   createFeatureSelector<ReadsByAgeState>('readsByAgeState');
-export const getReadsByAge = createSelector(
-  getReadsByAgeState,
-  (state) => state.reads
-);
