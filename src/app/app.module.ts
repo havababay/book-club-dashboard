@@ -19,6 +19,8 @@ import { DateRangeFilterComponent } from './filters/date-range-filter/date-range
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { reducers, fetchReadsByAgeReducer } from './state/reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { ReadsByAgeEffect } from './state/reads-by-age-effect';
 
 @NgModule({
   imports: [
@@ -33,6 +35,7 @@ import { reducers, fetchReadsByAgeReducer } from './state/reducers';
     StoreModule.forRoot({}), 
     StoreModule.forFeature('filtersState', reducers),
     StoreModule.forFeature('readsByAgeState', fetchReadsByAgeReducer),
+    EffectsModule.forFeature([ReadsByAgeEffect]),
   ],
   declarations: [
     AppComponent,

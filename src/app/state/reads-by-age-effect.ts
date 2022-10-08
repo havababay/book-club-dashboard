@@ -52,7 +52,7 @@ export class ReadsByAgeEffect {
   getMockDataEffect11$ = createEffect(() =>
     this.actions$.pipe(ofType(fetchReadsByAgPending)),
     mergeMap((action) => {
-      console.log('new fetchReadsByAge running')
+      //console.log('new fetchReadsByAge running')
       return this.service.fetchReadsByAge(filters : action.filters).pipe(
         map(res => fetchReadsByAgeSuccess({ data: res })),
         catchError(error => of(fetchReadsByAgeError({ error : error }))),
